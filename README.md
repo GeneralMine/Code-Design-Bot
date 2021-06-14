@@ -62,10 +62,10 @@ Erstellt eine Camp Kategorie mit den Channeln nach dem Camp Schema
 
 Message:
 ```
-Dies ist eine Testnachricht. Völlig Wurscht was hier kommt..........
-🐧 Coderlino - Portal für Coder - @GeneralMine
-🚀 RocketGoBrrrr - Portal für Coder - @GeneralMine
-🎶 Musicer - Portal für Coder - @GeneralMine
+Dies ist eine Testnachricht. Völlig Wurscht was hier kommt. Das sind die Teams:
+🐧  **Coderlino** - Portal für Coder - @GeneralMine
+🚀  **RocketGoBrrrr** - Portal für Coder - @GeneralMine
+🎶  **Musicer** - Portal für Coder - @GeneralMine
 ```
 [🐧] [🚀] [🎶]
 

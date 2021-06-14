@@ -12,20 +12,31 @@ module.exports = function (Discord, client, slashCommand) {
                 type: 3,
                 required: true,
             },
+            {
+                name: "label",
+                description: "label for the poll. will be the prefix for the channels",
+                type: 3,
+                required: true,
+            },
         ],
     }
 
     const interact = async (interaction) => {
         slashCommand.returnMessage(interaction, null, true);
-        storage.rcp.push({
+
+        storage.rcp[interaction.data.options[0].value] = {
             guildID: interaction.guild_id,
             channelID: interaction.channel_id,
-            messageID: interaction.data.options[0].value
+            label: interaction.data.options[1].value
+        };
+
+        await rcpController.refresh(interaction.data.options[0].value);
+
+        await slashCommand.editOriginalInteractionResponse(interaction, "Successfully registered reaction-channel-poll!").then(() => {
+            setTimeout(() => {
+                slashCommand.deleteOriginalInteractionResponse(interaction)
+            }, 5000)
         });
-
-        await rcpController.refresh(storage.rcp.length - 1);
-
-        await slashCommand.editOriginalInteractionResponse(interaction, "Successfully registered reaction-channel-poll!");
     }
 
     return {

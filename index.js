@@ -54,7 +54,12 @@ async function main() {
             }
         }
 
-        rcpController.checkTriggered(messageReaction, user);
+        rcpController.checkReactionAdd(messageReaction, user);
+    });
+
+    client.on("messageUpdate", async (oldMessage, newMessage) => {
+        rcpController.checkMessageUpdate(oldMessage, newMessage);
+
     });
 
     client.ws.on('INTERACTION_CREATE', async (interaction) => {
